@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  subscription:
+    build: .
+    ports:
+      - "50055:50055"
+    env_file:
+      - ./.env
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - subscription-network
+    depends_on:
+      - media
+      - review
+      - watchlist
+      - user
+
+  media:
+    image: your-media-service-image
+    ports:
+      - "50051:50051"
+    networks:
+      - subscription-network
+
+  review:
+    image: your-review-service-image
+    ports:
+      - "50053:50053"
+    networks:
+      - subscription-network
+
+  watchlist:
+    image: your-watchlist-service-image
+    ports:
+      - "50054:50054"
+    networks:
+      - subscription-network
+
+  user:
+    image: your-user-service-image
+    ports:
+      - "50052:50052"
+    networks:
+      - subscription-network
+
+networks:
+  subscription-network:
+    driver: bridge

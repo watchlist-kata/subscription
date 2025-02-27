@@ -31,9 +31,9 @@ func (s *GrpcSubscriptionServer) Subscribe(ctx context.Context, req *pb.Subscrib
 		return nil, status.Errorf(codes.InvalidArgument, "cannot subscribe to yourself")
 	}
 
-	err := s.subscriptionService.Subscribe(uint(req.SubscriberId), uint(req.SubscribeToId))
+	err := s.subscriptionService.Subscribe(ctx, uint(req.SubscriberId), uint(req.SubscribeToId))
 	if err != nil {
-		// Обработка специфических ошибок
+		// Обработка ошибок
 		if strings.Contains(err.Error(), "already exists") {
 			return nil, status.Errorf(codes.AlreadyExists, "subscription already exists")
 		}
@@ -46,9 +46,9 @@ func (s *GrpcSubscriptionServer) Subscribe(ctx context.Context, req *pb.Subscrib
 
 // Unsubscribe обрабатывает gRPC-запрос на отписку
 func (s *GrpcSubscriptionServer) Unsubscribe(ctx context.Context, req *pb.UnsubscribeRequest) (*pb.UnsubscribeResponse, error) {
-	err := s.subscriptionService.Unsubscribe(uint(req.SubscriberId), uint(req.UnsubscribeToId))
+	err := s.subscriptionService.Unsubscribe(ctx, uint(req.SubscriberId), uint(req.UnsubscribeFromId))
 	if err != nil {
-		// Обработка специфических ошибок
+		// Обработка ошибок
 		if strings.Contains(err.Error(), "does not exist") {
 			return nil, status.Errorf(codes.NotFound, "subscription does not exist")
 		}
@@ -61,7 +61,7 @@ func (s *GrpcSubscriptionServer) Unsubscribe(ctx context.Context, req *pb.Unsubs
 
 // GetSubscriptions обрабатывает gRPC-запрос на получение списка подписок пользователя
 func (s *GrpcSubscriptionServer) GetSubscriptions(ctx context.Context, req *pb.GetSubscriptionsRequest) (*pb.GetSubscriptionsResponse, error) {
-	subscriptions, err := s.subscriptionService.GetSubscriptions(uint(req.UserId))
+	subscriptions, err := s.subscriptionService.GetSubscriptions(ctx, uint(req.UserId))
 	if err != nil {
 		log.Printf("Failed to get subscriptions: %v", err)
 		return nil, status.Errorf(codes.Internal, "failed to get subscriptions")
@@ -78,7 +78,7 @@ func (s *GrpcSubscriptionServer) GetSubscriptions(ctx context.Context, req *pb.G
 
 // GetSubscribers обрабатывает gRPC-запрос на получение списка подписчиков пользователя
 func (s *GrpcSubscriptionServer) GetSubscribers(ctx context.Context, req *pb.GetSubscribersRequest) (*pb.GetSubscribersResponse, error) {
-	subscribers, err := s.subscriptionService.GetSubscribers(uint(req.UserId))
+	subscribers, err := s.subscriptionService.GetSubscribers(ctx, uint(req.UserId))
 	if err != nil {
 		log.Printf("Failed to get subscribers: %v", err)
 		return nil, status.Errorf(codes.Internal, "failed to get subscribers")
@@ -91,4 +91,37 @@ func (s *GrpcSubscriptionServer) GetSubscribers(ctx context.Context, req *pb.Get
 	}
 
 	return &pb.GetSubscribersResponse{SubscriberIds: subscriberIds}, nil
+}
+
+// CheckSubscription обрабатывает gRPC-запрос на проверку подписки
+func (s *GrpcSubscriptionServer) CheckSubscription(ctx context.Context, req *pb.CheckSubscriptionRequest) (*pb.CheckSubscriptionResponse, error) {
+	isSubscribed, err := s.subscriptionService.IsSubscribed(ctx, uint(req.SubscriberId), uint(req.SubscribeToId))
+	if err != nil {
+		log.Printf("Failed to check subscription: %v", err)
+		return nil, status.Errorf(codes.Internal, "failed to check subscription")
+	}
+
+	return &pb.CheckSubscriptionResponse{IsSubscribed: isSubscribed}, nil
+}
+
+// GetWatchlistsBySubscription обрабатывает gRPC-запрос на получение вотчлистов подписок
+func (s *GrpcSubscriptionServer) GetWatchlistsBySubscription(ctx context.Context, req *pb.GetWatchlistsRequest) (*pb.GetWatchlistsResponse, error) {
+	watchlists, err := s.subscriptionService.GetWatchlistsBySubscription(ctx, uint(req.UserId))
+	if err != nil {
+		log.Printf("Failed to get watchlists: %v", err)
+		return nil, status.Errorf(codes.Internal, "failed to get watchlists")
+	}
+
+	return &pb.GetWatchlistsResponse{Watchlists: watchlists}, nil
+}
+
+// GetReviewsBySubscription обрабатывает gRPC-запрос на получение отзывов подписок
+func (s *GrpcSubscriptionServer) GetReviewsBySubscription(ctx context.Context, req *pb.GetReviewsRequest) (*pb.GetReviewsResponse, error) {
+	reviews, err := s.subscriptionService.GetReviewsBySubscription(ctx, uint(req.UserId))
+	if err != nil {
+		log.Printf("Failed to get reviews: %v", err)
+		return nil, status.Errorf(codes.Internal, "failed to get reviews")
+	}
+
+	return &pb.GetReviewsResponse{Reviews: reviews}, nil
 }
