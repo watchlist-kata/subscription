@@ -17,7 +17,7 @@ RUN go mod download
 COPY . .
 
 # Собираем приложение, отключая CGO и указывая целевую ОС Linux
-RUN CGO_ENABLED=0 GOOS=linux go build -o /app/subscription ./main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o /app/subscription ./cmd/main.go
 
 # Создаем финальный образ на основе Alpine Linux
 FROM alpine:3.19

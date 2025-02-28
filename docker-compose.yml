@@ -1,12 +1,10 @@
-version: '3'
-
 services:
   subscription:
     build: .
     ports:
       - "50055:50055"
     env_file:
-      - ./.env
+      - ./cmd/.env
     volumes:
       - ./logs:/app/logs
     networks:
@@ -18,30 +16,30 @@ services:
       - user
 
   media:
-    image: your-media-service-image
+    image: media-media
     ports:
       - "50051:50051"
     networks:
       - subscription-network
 
+  user:
+    image: user-user
+    ports:
+      - "50052:50052"
+    networks:
+      - subscription-network
+
   review:
-    image: your-review-service-image
+    image: review-review
     ports:
       - "50053:50053"
     networks:
       - subscription-network
 
   watchlist:
-    image: your-watchlist-service-image
+    image: watchlist-watchlist
     ports:
       - "50054:50054"
-    networks:
-      - subscription-network
-
-  user:
-    image: your-user-service-image
-    ports:
-      - "50052:50052"
     networks:
       - subscription-network
 

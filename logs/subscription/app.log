@@ -1,0 +1,15 @@
+[INFO] - 2025-02-28T08:44:41Z - subscriptions fetched successfully
+[INFO] - 2025-02-28T08:44:41Z - watchlists fetched successfully
+[INFO] - 2025-02-28T08:44:41Z - watchlists fetched successfully
+[INFO] - 2025-02-28T08:44:58Z - subscriptions fetched successfully
+[INFO] - 2025-02-28T08:44:58Z - reviews fetched successfully
+[INFO] - 2025-02-28T08:44:58Z - reviews fetched successfully
+[INFO] - 2025-02-28T08:45:21Z - subscriptions fetched successfully
+[ERROR] - 2025-02-28T08:45:21Z - failed to get reviews from review service
+[ERROR] - 2025-02-28T08:45:21Z - failed to get reviews
+[INFO] - 2025-02-28T08:46:00Z - subscriptions fetched successfully
+[ERROR] - 2025-02-28T08:46:00Z - failed to get reviews from review service
+[ERROR] - 2025-02-28T08:46:00Z - failed to get reviews
+[INFO] - 2025-02-28T08:46:13Z - subscriptions fetched successfully
+[ERROR] - 2025-02-28T08:46:13Z - failed to get watchlist from watchlist service
+[ERROR] - 2025-02-28T08:46:13Z - failed to get watchlists
