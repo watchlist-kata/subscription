@@ -13,3 +13,44 @@
 [INFO] - 2025-02-28T08:46:13Z - subscriptions fetched successfully
 [ERROR] - 2025-02-28T08:46:13Z - failed to get watchlist from watchlist service
 [ERROR] - 2025-02-28T08:46:13Z - failed to get watchlists
+[WARN] - 2025-02-28T09:17:38Z - subscription not found
+[INFO] - 2025-02-28T09:17:38Z - subscription checked successfully
+[WARN] - 2025-02-28T09:17:38Z - subscription does not exist
+[INFO] - 2025-02-28T09:18:58Z - subscription checked successfully
+[INFO] - 2025-02-28T09:18:58Z - subscription checked successfully
+[WARN] - 2025-02-28T09:18:58Z - subscription already exists
+[WARN] - 2025-02-28T09:19:11Z - subscription not found
+[INFO] - 2025-02-28T09:19:11Z - subscription checked successfully
+[INFO] - 2025-02-28T09:19:12Z - subscription created successfully
+[INFO] - 2025-02-28T09:19:12Z - subscription created successfully
+[INFO] - 2025-02-28T09:21:20Z - subscriptions fetched successfully
+[ERROR] - 2025-02-28T09:21:20Z - failed to get reviews from review service
+[ERROR] - 2025-02-28T09:21:20Z - failed to get reviews
+[INFO] - 2025-02-28T09:23:11Z - subscription checked successfully
+[INFO] - 2025-02-28T09:23:11Z - subscription checked successfully
+[INFO] - 2025-02-28T09:23:11Z - subscription deleted successfully
+[INFO] - 2025-02-28T09:23:11Z - subscription deleted successfully
+[INFO] - 2025-02-28T09:27:17Z - subscriptions fetched successfully
+[ERROR] - 2025-02-28T09:27:17Z - failed to get watchlist from watchlist service
+[ERROR] - 2025-02-28T09:27:17Z - failed to get watchlists
+[INFO] - 2025-02-28T09:40:13Z - subscriptions fetched successfully
+[INFO] - 2025-02-28T09:40:13Z - subscriptions fetched successfully
+[INFO] - 2025-02-28T09:40:26Z - subscriptions fetched successfully
+[INFO] - 2025-02-28T09:40:27Z - watchlists fetched successfully
+[INFO] - 2025-02-28T09:40:27Z - watchlists fetched successfully
+[INFO] - 2025-02-28T09:40:45Z - subscriptions fetched successfully
+[INFO] - 2025-02-28T09:40:46Z - reviews fetched successfully
+[INFO] - 2025-02-28T09:40:46Z - reviews fetched successfully
+[WARN] - 2025-02-28T09:41:06Z - subscription not found
+[INFO] - 2025-02-28T09:41:06Z - subscription checked successfully
+[INFO] - 2025-02-28T09:41:07Z - subscription created successfully
+[INFO] - 2025-02-28T09:41:07Z - subscription created successfully
+[INFO] - 2025-02-28T09:41:15Z - subscriptions fetched successfully
+[INFO] - 2025-02-28T09:41:16Z - reviews fetched successfully
+[INFO] - 2025-02-28T09:41:16Z - reviews fetched successfully
+[INFO] - 2025-02-28T09:44:15Z - subscriptions fetched successfully
+[INFO] - 2025-02-28T09:44:16Z - watchlists fetched successfully
+[INFO] - 2025-02-28T09:44:16Z - watchlists fetched successfully
+[INFO] - 2025-02-28T09:45:44Z - subscriptions fetched successfully
+[INFO] - 2025-02-28T09:45:46Z - reviews fetched successfully
+[INFO] - 2025-02-28T09:45:46Z - reviews fetched successfully
